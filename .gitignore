@@ -69,5 +69,3 @@ junk/
 package-lock.json
 /pkg
 /web_modules
-
-firebase-config.js
