@@ -1,5 +1,7 @@
 import {html, render} from "./web_modules/lit-html.js";
 
+import './web_modules/@wonkytech/tm-splash-screen.js';
+
 render(html`
     <style>
         body {
