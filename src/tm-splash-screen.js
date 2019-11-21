@@ -1,6 +1,5 @@
 import {html, css, LitElement} from 'lit-element';
 
-import '@material/mwc-dialog';
 import '@wonkytech/tm-firebase-user';
 
 window.customElements.define('tm-splash-screen', class extends LitElement {
