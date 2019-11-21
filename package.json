@@ -1,0 +1,52 @@
+{
+    "name": "@wonkytech/tm-splash-screen",
+    "version": "0.0.1",
+    "description": "Web component splash screen to manage login and waiting for dependencies.",
+    "author": "Tim McMaster",
+    "homepage": "https://tmcmaster.github.io/tm-splash-screen",
+    "license": "MIT",
+    "repository": "https://github.com/tmcmaster/tm-splash-screen",
+    "pika": true,
+    "sideEffects": true,
+    "@pika/pack": {
+        "pipeline": [
+            [
+                "@pika/plugin-standard-pkg"
+            ],
+            [
+                "@pika/plugin-build-node"
+            ],
+            [
+                "@pika/plugin-build-web"
+            ]
+        ]
+    },
+    "scripts": {
+        "build": "pika build",
+        "version": "npm run build",
+        "publish": "pika publish",
+        "demo": "owc-dev-server",
+        "demo:open": "owc-dev-server --open demo",
+        "docs:clear": "rm -rf docs/web_modules",
+        "docs:install": "npm install && npx @pika/web --dest docs/web_modules",
+        "docs:pika": "(cd pika; npm run pika:build)",
+        "build:docs": "npm run docs:clear && npm run docs:install && npm run docs:pika",
+        "docs": "http-server docs",
+        "docs:open": "http-server --open docs"
+    },
+    "dependencies": {
+        "@material/mwc-dialog": "^0.10.0",
+        "@wonkytech/tm-firebase-user": "0.0.17",
+        "lit-element": "^2.0.1",
+        "lit-html": "^1.0.0"
+    },
+    "devDependencies": {
+        "@pika/pack": "^0.5.0",
+        "@pika/plugin-build-node": "^0.6.1",
+        "@pika/plugin-build-types": "^0.6.1",
+        "@pika/plugin-build-web": "^0.6.1",
+        "@pika/plugin-standard-pkg": "^0.6.1",
+        "@pika/types": "^0.6.1",
+        "owc-dev-server": "^0.3.0"
+    }
+}
