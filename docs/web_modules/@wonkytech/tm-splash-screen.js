@@ -24,7 +24,9 @@ window.customElements.define('tm-splash-screen', class extends LitElement {
     this.config = undefined;
   }
 
-  firstUpdated(_changedProperties) {}
+  firstUpdated(_changedProperties) {
+    this.splash = this.shadowRoot.getElementById('splash');
+  }
 
   static get styles() {
     // language=CSS

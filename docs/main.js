@@ -16,8 +16,12 @@ render(html`
         img {
             width: 200px;
         }
+        h1,h3 {
+            text-align: center;
+        }
     </style>
     <h1>This is a test application.</h1>
+    <h3>Splash screen should appear shortly, then disappear for a short while, and then return.</h3>
     <tm-splash-screen id="splash" heading="This is a Splash Screen">
         <img src="images/legohead-transparent.png"/>
         <span>The purpose  of this web component,</span>
@@ -31,12 +35,12 @@ const splash = document.getElementById('splash');
 
 setTimeout(() => {
     splash.show();
-}, 2000);
+}, 3000);
 
 setTimeout(() => {
     splash.hide();
-}, 4000);
+}, 5000);
 
 setTimeout(() => {
     splash.show();
-}, 6000);
+}, 7000);
