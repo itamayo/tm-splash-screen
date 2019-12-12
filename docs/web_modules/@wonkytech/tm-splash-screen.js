@@ -33,17 +33,16 @@ window.customElements.define('tm-splash-screen', class extends LitElement {
     return css`
             :host {
             }
-
-
+            
             .container {
                 position: absolute;
                 left: 0;
                 top: 0;
-                background: lightblue;
+                /*noinspection CssUnresolvedCustomProperty*/
+                background: var(--tm-splash-screen-background, white);
                 width: 100vw;
                 height: 100vh;
                 box-sizing: border-box;
-                //border: solid red 2px;
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
@@ -51,16 +50,14 @@ window.customElements.define('tm-splash-screen', class extends LitElement {
 
             .body {
                 box-sizing: border-box;
-                //border: solid blue 2px;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
             }
 
             tm-firebase-user {
-                /*--tm-firebase-user-color: #6200ee;*/
-                --tm-firebase-user-color: blue;
-                //width: 200px;
+                /*noinspection CssUnresolvedCustomProperty*/
+                --tm-firebase-user-color: var(--tm-splash-screen-color, gray);
                 margin-left: auto;
                 margin-right: auto;
             }
@@ -75,7 +72,8 @@ window.customElements.define('tm-splash-screen', class extends LitElement {
             .body > h1 {
                 text-align: center;
                 margin-top: 0;
-                color: blue;
+                /*noinspection CssUnresolvedCustomProperty*/
+                color: var(--tm-splash-screen-color, gray);
             }
 
             ::slotted(*) {
@@ -92,11 +90,13 @@ window.customElements.define('tm-splash-screen', class extends LitElement {
 
 
   render() {
-    // const loginElement = this.addLoginIfRequired();
+    const {
+      heading
+    } = this;
     return html`
             <div id="splash" class="container hidden">
                 <div class="body">
-                    <h1>${this.heading}</h1>
+                    <h1>${heading}</h1>
                     <div class="message">
                         <slot></slot>
                     </div>
@@ -107,9 +107,14 @@ window.customElements.define('tm-splash-screen', class extends LitElement {
   }
 
   addLoginIfRequired() {
-    if (this.login) {
-      if (this.config) {
-        return html`<tm-firebase-user .config="${this.config}"></tm-firebase-user>`;
+    const {
+      login,
+      config
+    } = this;
+
+    if (login) {
+      if (config) {
+        return html`<tm-firebase-user .config="${config}"></tm-firebase-user>`;
       } else {
         return html`<tm-firebase-user></tm-firebase-user>`;
       }
@@ -119,11 +124,17 @@ window.customElements.define('tm-splash-screen', class extends LitElement {
   }
 
   show() {
-    this.splash.classList.remove('hidden');
+    const {
+      splash
+    } = this;
+    splash.classList.remove('hidden');
   }
 
   hide() {
-    this.splash.classList.add('hidden');
+    const {
+      splash
+    } = this;
+    splash.classList.add('hidden');
   }
 
 });
