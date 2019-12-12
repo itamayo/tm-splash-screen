@@ -12,6 +12,7 @@
     "dependencies": {
         "lit-element": "^2.0.1",
         "lit-html": "^1.0.0",
+        "@wonkytech/tm-firebase-user": "^0.0.17",
         "@wonkytech/tm-splash-screen": "^0.0.1"
     },
     "devDependencies": {}

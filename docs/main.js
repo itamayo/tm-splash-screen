@@ -1,7 +1,5 @@
 import {html, render} from "./web_modules/lit-html.js";
 
-import './web_modules/@wonkytech/tm-splash-screen.js';
-
 render(html`
     <style>
         body {
@@ -20,7 +18,7 @@ render(html`
         }
     </style>
     <h1>This is a test application.</h1>
-    <tm-splash-screen id="splash" heading="This is a Splash Screen" login>
+    <tm-splash-screen id="splash" heading="This is a Splash Screen">
         <img src="images/legohead-transparent.png"/>
         <span>The purpose  of this web component,</span>
         <span>is to make it easier to add a splash screen,</span>
@@ -29,16 +27,16 @@ render(html`
 `, document.querySelector('body'));
 
 
-this.splash = this.shadowRoot.getElementById('splash');
+const splash = document.getElementById('splash');
 
 setTimeout(() => {
-    this.show();
+    splash.show();
 }, 2000);
 
 setTimeout(() => {
-    this.hide();
+    splash.hide();
 }, 4000);
 
 setTimeout(() => {
-    this.show();
+    splash.show();
 }, 6000);

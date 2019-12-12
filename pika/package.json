@@ -1,8 +1,9 @@
 {
     "scripts": {
-        "pika:build": "npm install && npx @pika/web --dest ../docs/web_modules"
+        "build": "npm install && npx @pika/web --dest ../docs/web_modules"
     },
     "dependencies": {
-        "@wonkytech/tm-splash-screen": "^0.0.3"
+        "@wonkytech/tm-firebase-user": "^0.0.17",
+        "@wonkytech/tm-splash-screen": "^0.0.4"
     }
 }
