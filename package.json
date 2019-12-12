@@ -1,6 +1,6 @@
 {
     "name": "@wonkytech/tm-splash-screen",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "Web component splash screen to manage login and waiting for dependencies.",
     "author": "Tim McMaster",
     "homepage": "https://tmcmaster.github.io/tm-splash-screen",
