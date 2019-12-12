@@ -4,6 +4,6 @@
     },
     "dependencies": {
         "@wonkytech/tm-firebase-user": "^0.0.17",
-        "@wonkytech/tm-splash-screen": "^0.0.6"
+        "@wonkytech/tm-splash-screen": "^0.0.7"
     }
 }
