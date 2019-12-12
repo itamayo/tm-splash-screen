@@ -17,7 +17,7 @@ npm --save install @wonkytech/tm-splash-screen
         }
     </style>
     <script type="module">
-      import 'tm-splash-screen';
+        import 'tm-splash-screen';
     </script>
 </head>
 <body>
