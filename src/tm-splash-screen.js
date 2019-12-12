@@ -89,7 +89,7 @@ window.customElements.define('tm-splash-screen', class extends LitElement {
     render() {
         const {heading} = this;
         return html`
-            <div id="splash" class="container hidden">
+            <div id="splash" class="container">
                 <div class="body">
                     <h1>${heading}</h1>
                     <div class="message">
