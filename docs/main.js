@@ -2,6 +2,15 @@ import {html, render} from "./web_modules/lit-html.js";
 
 render(html`
     <style>
+        html {
+            --tm-splash-screen-background: lightgray; 
+            --tm-splash-screen-color: black; 
+        }
+    </style>
+`, document.querySelector('head'));
+
+render(html`
+    <style>
         body {
           //background-color: lightgray;
           padding: 0;
