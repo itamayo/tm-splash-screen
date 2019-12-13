@@ -3,7 +3,7 @@
         "build": "npm update && npx @pika/web --dest ../docs/web_modules"
     },
     "dependencies": {
-        "@wonkytech/tm-firebase-user": "^0.0.19",
-        "@wonkytech/tm-splash-screen": "^0.0.7"
+        "@wonkytech/tm-firebase-user": "~0.0.19",
+        "@wonkytech/tm-splash-screen": "~0.0.8"
     }
 }
