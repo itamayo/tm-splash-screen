@@ -26,6 +26,7 @@
         "version": "npm run build",
         "publish": "pika publish",
         "serve": "firebase serve --port 8000",
+        "deploy": "firebase deploy --only hosting:tm-splash-screen",
         "docs:clear": "rm -rf public/web_modules",
         "docs:install": "npm install && npx @pika/web --dest public/web_modules",
         "docs:pika": "(cd pika; npm run build)",

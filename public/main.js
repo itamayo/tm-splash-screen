@@ -36,7 +36,7 @@ render(html`
         
     </style>
     <h1>This is a test application.</h1>
-    <h3>Splash screen should appear, then disappear for a short while, and then return.</h3>
+    <h3>Logging out should cause the splash screen to return.</h3>
     <div>
         <button @click="${logout}">LOGOUT</button>    
     </div>
