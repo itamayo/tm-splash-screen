@@ -1,5 +1,7 @@
 import {html, render} from "./web_modules/lit-html.js";
 
+import {firebaseConfig} from "../firebase-config.js";
+
 render(html`
     <style>
         html {
@@ -12,26 +14,35 @@ render(html`
 render(html`
     <style>
         body {
-          //background-color: lightgray;
           padding: 0;
           margin: 0;
         } 
         
-        span {
-            //text-align: center;
-            //border: solid red 1px;;
-        }
-        
         img {
             width: 200px;
         }
+        
         h1,h3 {
             text-align: center;
         }
+        
+        div {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        button {
+            border: solid grey 1px;
+        }
+        
     </style>
     <h1>This is a test application.</h1>
     <h3>Splash screen should appear, then disappear for a short while, and then return.</h3>
-    <tm-splash-screen id="splash" heading="This is a Splash Screen">
+    <div>
+        <button @click="${logout}">LOGOUT</button>    
+    </div>
+    <tm-splash-screen id="splash" heading="This is a Splash Screen" login  .config="${firebaseConfig}">
         <img src="images/legohead-transparent.png"/>
         <span>The purpose  of this web component,</span>
         <span>is to make it easier to add a splash screen,</span>
@@ -39,13 +50,16 @@ render(html`
     </tm-splash-screen>
 `, document.querySelector('body'));
 
+function logout() {
+    document.getElementById('splash').logout();
+}
 
-const splash = document.getElementById('splash');
-
-setTimeout(() => {
-    splash.hide();
-}, 3000);
-
-setTimeout(() => {
-    splash.show();
-}, 6000);
+// const splash = document.getElementById('splash');
+//
+// setTimeout(() => {
+//     splash.hide();
+// }, 3000);
+//
+// setTimeout(() => {
+//     splash.show();
+// }, 6000);

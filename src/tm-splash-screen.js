@@ -3,6 +3,8 @@ import {LitElement, css} from 'lit-element';
 
 import '@wonkytech/tm-firebase-user';
 
+document.addEventListener('user-logged-in', () => console.log('AAAAAAAAAAAAAAAA'));
+
 window.customElements.define('tm-splash-screen', class extends LitElement {
 
     // noinspection JSUnusedGlobalSymbols
@@ -10,19 +12,47 @@ window.customElements.define('tm-splash-screen', class extends LitElement {
         return {
             heading: {type: String},
             login: {type: Boolean},
-            config: {type: Object}
+            config: {type: Object},
+            waitFor: {type: Array}
         }
     }
 
     constructor() {
         super();
-        this.heading = 'Hello World!';
+        this.heading = '';
         this.login = false;
         this.config = undefined;
+        this.waitFor = undefined;
     }
 
     firstUpdated(_changedProperties) {
         this.splash = this.shadowRoot.getElementById('splash');
+
+        const {waitFor} = this;
+
+        Promise.all(waitFor.map(name => customElements.whenDefined(name)))
+            .then(() => console.log('TM-SPLASH-SCREEN: application good to go.'));
+    }
+
+    connectedCallback() {
+        super.connectedCallback();
+
+        if (this.login) {
+            this._loginListener = () => this.hide();
+            this._logoutListener = () => this.show();
+            document.addEventListener('user-logged-in', this._loginListener);
+            document.addEventListener('user-logged-out', this._logoutListener);
+        }
+    }
+
+    disconnectedCallback() {
+        super.disconnectedCallback();
+        if (this.login) {
+            document.removeEventListener('user-logged-in', this._loginListener);
+            document.removeEventListener('user-logged-out', this._logoutListener);
+            this._loginListener = undefined;
+            this._logoutListener = undefined;
+        }
     }
 
     static get styles() {
@@ -105,13 +135,18 @@ window.customElements.define('tm-splash-screen', class extends LitElement {
         const {login, config} = this;
         if (login) {
             if (config) {
-                return html`<tm-firebase-user .config="${config}"></tm-firebase-user>`;
+                return html`<tm-firebase-user id="login" .config="${config}"></tm-firebase-user>`;
             } else {
-                return html`<tm-firebase-user></tm-firebase-user>`;
+                return html`<tm-firebase-user id="login"></tm-firebase-user>`;
             }
         } else {
             return html``;
         }
+    }
+
+    logout() {
+        this.show();
+        this.shadowRoot.getElementById('login').logout();
     }
 
     show() {
