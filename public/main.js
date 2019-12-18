@@ -1,7 +1,5 @@
 import {html, render} from "./web_modules/lit-html.js";
 
-//import {firebaseConfig} from "../firebase-config.js";
-
 render(html`
     <style>
         html {
@@ -53,13 +51,3 @@ render(html`
 function logout() {
     document.getElementById('splash').logout();
 }
-
-const splash = document.getElementById('splash');
-
-setTimeout(() => {
-    splash.hide();
-}, 3000);
-
-setTimeout(() => {
-    splash.show();
-}, 6000);
