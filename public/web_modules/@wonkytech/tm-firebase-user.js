@@ -12987,7 +12987,7 @@ function _loadScript(script) {
         reject(error);
       };
 
-      document.getElementsByTagName('head')[0].append(newScript);
+      document.getElementsByTagName('head')[0].appendChild(newScript);
       newScript.src = script.toString();
     });
   } else {
@@ -13043,7 +13043,7 @@ function loadLink(link) {
     console.error(`There was an issue loading link(${link}):`, error);
   };
 
-  document.getElementsByTagName('head')[0].append(newLink);
+  document.getElementsByTagName('head')[0].appendChild(newLink);
 }
 
 function loadFirebaseEmbedded() {
@@ -13061,7 +13061,7 @@ function loadFirebaseEmbedded() {
 
 function loadFirebaseCDN() {
   return _loadScripts({
-    load: ['https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js', 'https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js', 'https://www.gstatic.com/firebasejs/7.4.0/firebase-auth.js'],
+    load: ['https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js', 'https://www.gstatic.com/firebasejs/7.4.0/firebase-auth.js'],
     then: {
       load: ['https://www.gstatic.com/firebasejs/7.4.0/firebase-database.js', 'https://www.gstatic.com/firebasejs/7.4.0/firebase-messaging.js', 'https://www.gstatic.com/firebasejs/7.4.0/firebase-storage.js']
     },

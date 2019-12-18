@@ -35,6 +35,7 @@ render(html`
         }
         
     </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <h1>This is a test application.</h1>
     <h3>Logging out should cause the splash screen to return.</h3>
     <div>
