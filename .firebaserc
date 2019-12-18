@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "tm-firebase-user"
+  },
+  "targets": {
+    "tm-firebase-user": {
+      "hosting": {
+        "tm-splash-screen": [
+          "tm-splash-screen"
+        ]
+      }
+    }
+  }
+}

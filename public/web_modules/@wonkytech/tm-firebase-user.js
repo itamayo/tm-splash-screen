@@ -97,7 +97,7 @@ window.customElements.define('tm-firebase-user', class extends LitElement {
             uid: userId
           };
           console.log(LOG_PREFIX + 'User retrieved from database: ', this.user);
-          document.dispatchEvent(createEvent('user-logged-in', { ...this.user
+          this.dispatchEvent(createEvent('user-logged-in', { ...this.user
           }));
         }).catch(error => {
           console.error(LOG_PREFIX + 'There was an issue getting user: ' + userId, error);

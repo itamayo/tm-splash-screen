@@ -1,2 +1,2 @@
 import '../src/index.js';
-import '../docs/main.js';
+import '../public/main.js';

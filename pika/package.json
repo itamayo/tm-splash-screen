@@ -1,6 +1,6 @@
 {
     "scripts": {
-        "build": "npm update && npx @pika/web --dest ../docs/web_modules"
+        "build": "npm update && npx @pika/web --dest ../public/web_modules"
     },
     "dependencies": {
         "@wonkytech/tm-firebase-user": "~0.1",

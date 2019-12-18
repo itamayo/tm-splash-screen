@@ -27,11 +27,12 @@ window.customElements.define('tm-splash-screen', class extends LitElement {
 
     firstUpdated(_changedProperties) {
         this.splash = this.shadowRoot.getElementById('splash');
-
         const {waitFor} = this;
 
-        Promise.all(waitFor.map(name => customElements.whenDefined(name)))
-            .then(() => console.log('TM-SPLASH-SCREEN: application good to go.'));
+        if (waitFor) {
+            Promise.all(waitFor.map(name => customElements.whenDefined(name)))
+                .then(() => console.log('TM-SPLASH-SCREEN: application good to go.'));
+        }
     }
 
     connectedCallback() {
@@ -146,7 +147,9 @@ window.customElements.define('tm-splash-screen', class extends LitElement {
 
     logout() {
         this.show();
-        this.shadowRoot.getElementById('login').logout();
+        if (this.login) {
+            this.shadowRoot.getElementById('login').logout();
+        }
     }
 
     show() {

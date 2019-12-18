@@ -1,6 +1,6 @@
 import {html, render} from "./web_modules/lit-html.js";
 
-import {firebaseConfig} from "../firebase-config.js";
+//import {firebaseConfig} from "../firebase-config.js";
 
 render(html`
     <style>
@@ -42,7 +42,7 @@ render(html`
     <div>
         <button @click="${logout}">LOGOUT</button>    
     </div>
-    <tm-splash-screen id="splash" heading="This is a Splash Screen" login  .config="${firebaseConfig}">
+    <tm-splash-screen id="splash" heading="This is a Splash Screen" login>
         <img src="images/legohead-transparent.png"/>
         <span>The purpose  of this web component,</span>
         <span>is to make it easier to add a splash screen,</span>
@@ -54,12 +54,12 @@ function logout() {
     document.getElementById('splash').logout();
 }
 
-// const splash = document.getElementById('splash');
-//
-// setTimeout(() => {
-//     splash.hide();
-// }, 3000);
-//
-// setTimeout(() => {
-//     splash.show();
-// }, 6000);
+const splash = document.getElementById('splash');
+
+setTimeout(() => {
+    splash.hide();
+}, 3000);
+
+setTimeout(() => {
+    splash.show();
+}, 6000);
