@@ -74,6 +74,7 @@ window.customElements.define('tm-splash-screen', class extends LitElement {
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
+                z-index:1000000;
             }
 
             .body {
